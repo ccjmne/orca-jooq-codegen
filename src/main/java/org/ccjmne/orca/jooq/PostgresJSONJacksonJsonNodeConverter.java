@@ -13,7 +13,7 @@ public class PostgresJSONJacksonJsonNodeConverter implements Converter<Object, J
 
   private final ObjectMapper mapper;
 
-  protected PostgresJSONJacksonJsonNodeConverter() {
+  public PostgresJSONJacksonJsonNodeConverter() {
     this.mapper = new ObjectMapper();
   }
 
