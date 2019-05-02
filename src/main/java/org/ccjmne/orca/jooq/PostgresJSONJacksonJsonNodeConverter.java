@@ -17,6 +17,7 @@ public class PostgresJSONJacksonJsonNodeConverter implements Converter<Object, J
     this.mapper = new ObjectMapper();
   }
 
+  @Override
   public JsonNode from(final Object t) {
     try {
       return t == null ? NullNode.instance : this.mapper.readTree(t.toString());
@@ -25,6 +26,7 @@ public class PostgresJSONJacksonJsonNodeConverter implements Converter<Object, J
     }
   }
 
+  @Override
   public Object to(final JsonNode u) {
     try {
       return (u == null) || u.equals(NullNode.instance) ? null : this.mapper.writeValueAsString(u);
@@ -33,10 +35,12 @@ public class PostgresJSONJacksonJsonNodeConverter implements Converter<Object, J
     }
   }
 
+  @Override
   public Class<Object> fromType() {
     return Object.class;
   }
 
+  @Override
   public Class<JsonNode> toType() {
     return JsonNode.class;
   }

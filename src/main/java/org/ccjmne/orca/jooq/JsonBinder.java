@@ -21,35 +21,43 @@ import com.fasterxml.jackson.databind.JsonNode;
 @SuppressWarnings("serial")
 public class JsonBinder implements Binding<Object, JsonNode> {
 
+  @Override
   public Converter<Object, JsonNode> converter() {
     return new PostgresJSONJacksonJsonNodeConverter();
   }
 
+  @Override
   public void sql(final BindingSQLContext<JsonNode> ctx) throws SQLException {
     ctx.render().visit(DSL.val(ctx.convert(this.converter()).value())).sql("::jsonb");
   }
 
+  @Override
   public void register(final BindingRegisterContext<JsonNode> ctx) throws SQLException {
     ctx.statement().registerOutParameter(ctx.index(), Types.VARCHAR);
   }
 
+  @Override
   public void set(final BindingSetStatementContext<JsonNode> ctx) throws SQLException {
     ctx.statement()
         .setString(ctx.index(), Objects.toString(ctx.convert(this.converter()).value(), null));
   }
 
+  @Override
   public void set(final BindingSetSQLOutputContext<JsonNode> ctx) throws SQLException {
     throw new SQLFeatureNotSupportedException();
   }
 
+  @Override
   public void get(final BindingGetResultSetContext<JsonNode> ctx) throws SQLException {
     ctx.convert(this.converter()).value(ctx.resultSet().getString(ctx.index()));
   }
 
+  @Override
   public void get(final BindingGetStatementContext<JsonNode> ctx) throws SQLException {
     ctx.convert(this.converter()).value(ctx.statement().getString(ctx.index()));
   }
 
+  @Override
   public void get(final BindingGetSQLInputContext<JsonNode> ctx) throws SQLException {
     throw new SQLFeatureNotSupportedException();
   }
