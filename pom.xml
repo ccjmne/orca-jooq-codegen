@@ -54,13 +54,6 @@
 							<includes>.*</includes>
 							<excludes></excludes>
 							<inputSchema>public</inputSchema>
-							<forcedTypes>
-								<forcedType>
-									<userType>com.fasterxml.jackson.databind.JsonNode</userType>
-									<binding>org.ccjmne.orca.jooq.JsonBinder</binding>
-									<types>JSONB?</types>
-								</forcedType>
-							</forcedTypes>
 						</database>
 
 						<target>
