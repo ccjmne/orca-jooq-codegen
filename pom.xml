@@ -8,7 +8,6 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jackson.version>2.9.8</jackson.version>
 		<jooq.version>3.12.3</jooq.version>
 		<jdbc.version>42.2.5</jdbc.version>
 	</properties>
@@ -72,13 +71,6 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>${jdbc.version}</version>
-		</dependency>
-
-		<!-- JSON -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
 		</dependency>
 
 		<!-- JOOQ-CODEGEN -->
