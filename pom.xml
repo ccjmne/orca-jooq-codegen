@@ -10,6 +10,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jooq.version>3.12.3</jooq.version>
 		<jdbc.version>42.2.5</jdbc.version>
+		
+		<!-- defaults to be overridden with command line args  -->
+		<db_name>orca</db_name>
 	</properties>
 
 	<build>
@@ -41,7 +44,7 @@
 					<!-- JDBC connection parameters -->
 					<jdbc>
 						<driver>org.postgresql.Driver</driver>
-						<url>jdbc:postgresql://localhost:5433/orca</url>
+						<url>jdbc:postgresql://localhost:5432/${db_name}</url>
 						<user>postgres</user>
 						<password>postgrespwd</password>
 					</jdbc>
