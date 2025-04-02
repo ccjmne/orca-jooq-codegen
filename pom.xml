@@ -9,7 +9,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jooq.version>3.13.4</jooq.version>
-		<jdbc.version>42.7.1</jdbc.version>
+		<jdbc.version>42.7.2</jdbc.version>
 
 		<!-- defaults to be overridden with command line args  -->
 		<db_name>orca</db_name>
